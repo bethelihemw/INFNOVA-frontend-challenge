@@ -6,7 +6,7 @@ export default function Navbar() {
       
       
       <div className={styles.logo}>
-        <img src="/image.png" alt="logo" />
+        <img src="/imag.png" alt="logo" />
         {/* <span>INFNOVA</span> */}
       </div>
 
@@ -16,7 +16,6 @@ export default function Navbar() {
         <li>About</li>
         <li>Contact</li>
       </ul>
-
     
       <div className={styles.actions}>
         <a className={styles.signIn}>Sign In</a>

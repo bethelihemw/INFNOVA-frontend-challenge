@@ -1,0 +1,14 @@
+.hero {
+  background-color: #ff5a1f;
+  color: white;
+  padding: 70px 60px;
+}
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.hero p {
+  max-width: 600px;
+  line-height: 1.6;
+}
+
