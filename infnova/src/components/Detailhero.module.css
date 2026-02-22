@@ -1,0 +1,76 @@
+.hero {
+  background-color: #ff6b00; /* Bright orange from your image */
+  color: white;
+  padding: 40px 20px;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 20px;
+}
+
+.backLink {
+  font-size: 14px;
+  margin: 20px 30px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 40px;
+  /* align-items: b; */
+}
+
+.textSide { flex: 2; }
+
+.category {
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.title {
+  font-size: 42px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.description {
+  color: rgb(253, 243, 243);
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  max-width: 560px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.badge {
+  background: rgba(129, 236, 255, 0.87);
+  display: inline-block;
+  padding: 10px 23px;
+  color: black;
+  border-radius: 20px;
+  font-size: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.imageSide { flex: 1; }
+
+.heroImg {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .contentWrapper { flex-direction: column; }
+}
