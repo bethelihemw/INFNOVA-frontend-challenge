@@ -21,24 +21,47 @@
   position: sticky;
   top: 20px;
 }
+.text{
+  color: rgb(70, 69, 69);
+  font-size: 15px;
+  margin-top: 10px;
+}
 
-.enroll-btn {
+.enrollBtn {
   width: 100%;
   background: #ff5a00;
   color: white;
   padding: 12px;
   border: none;
+  font-size: 18px;
   margin: 10px 0;
   border-radius: 6px;
 }
 
-.wishlist-btn {
+.wishlistBtn {
   width: 100%;
   padding: 12px;
+  font-size: 18px;
   border: 1px solid #ff5a00;
   background: white;
   color: #ff5a00;
+  margin-bottom: 20px;
   border-radius: 6px;
+}
+.hr{
+  color: rgb(233, 233, 233);
+  margin-bottom: 20px;
+}
+.h3{
+  margin-bottom: 16px;
+}
+.li{
+  margin-top: 12px;
+  list-style: none;
+  margin-bottom: 12px;
+  color: rgb(46, 45, 45);
+  font-size: 15px;
+
 }
 /* 
 .container {
@@ -57,4 +80,134 @@
   background: white;
   padding: 20px;
   border-radius: 10px;
+} */
+
+ /* CARD STYLE */
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+}
+
+/* TITLES */
+.heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* DESCRIPTION TEXT */
+.text {
+  color: #4b5563;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* INSTRUCTOR SECTION */
+.instructorWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+/* ORANGE CIRCLE */
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: #ff5a1f;
+  color: white;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.instructorName {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.instructorBio {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 32px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow like the original */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.icon {
+  font-size: 24px;
+  color: #ff5c35; /* Matching the orange book icon */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  row-gap: 16px;
+  column-gap: 32px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #10b981; /* The green color from image */
+  border-radius: 50%;
+  color: #10b981;
+  padding: 2px;
+}
+
+.checkIcon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.topicText {
+  color: #4b5563;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Responsive adjustment for mobile */
+/* @media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 } */
