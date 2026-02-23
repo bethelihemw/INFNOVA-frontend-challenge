@@ -9,7 +9,7 @@
   margin-top: 60px;
 }
 
-/* TOP SECTION */
+
 .top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -50,7 +50,7 @@
   color: white;
 }
 
-/* BOTTOM COPYRIGHT */
+
 .bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
   margin-top: 40px;

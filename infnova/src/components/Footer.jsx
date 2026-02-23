@@ -8,7 +8,7 @@ export default function Footer() {
       
       <div className={styles.top}>
 
-        {/* LEFT */}
+        
         <div>
           <h3>INFNOVA Academy</h3>
           <p>
@@ -17,7 +17,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* MIDDLE */}
+        
         <div>
           <h4>Quick Links</h4>
           <ul>
@@ -28,7 +28,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* RIGHT */}
+      
         <div>
           <h4>Support</h4>
           <ul>

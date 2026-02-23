@@ -3,11 +3,11 @@ import styles from "./CourseDetails.module.css";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 export default async function CourseDetailPage({ params }) {
-  // 1. Await params (Required in newer Next.js versions)
+  
   const { id } = await params;
 
   try {
-    // 2. Fetch data from the API
+    
     const res = await fetch(`https://infnova-course-api.vercel.app/api/courses/${id}`, {
       cache: 'no-store',
     });
@@ -18,13 +18,13 @@ export default async function CourseDetailPage({ params }) {
 
     const course = await res.json();
 
-    // 3. The Actual UI
+    
     return (
       <div>
         <Navbar/>
         
       <div className={styles.container}>
-        {/* HERO SECTION */}
+        
         <Link href="/" className={styles.backlink}>
 
               ← Back to Courses
@@ -52,7 +52,7 @@ export default async function CourseDetailPage({ params }) {
                 </div>
               </div>
 
-              {/* Decorative Image (matches Figma) */}
+              
               <div className={styles.imageWrapper}>
                  <img src={course.thumbnail} alt="course" className="w-full h-full object-cover" />
               </div>
@@ -60,11 +60,11 @@ export default async function CourseDetailPage({ params }) {
           </div>
         </section>
 
-        {/* MAIN CONTENT AREA */}
+      
         <main className={styles.main}>
           
           <div className={styles.section1}>
-            {/* What You'll Learn */}
+            
             <div className={styles.learn}>
               <h2 className={styles.h2}>
                 <span className={styles.span}><img className={styles.img} src="/book.png" alt="Instructor Icon" /></span> What You'll Learn
@@ -81,7 +81,7 @@ export default async function CourseDetailPage({ params }) {
               </div>
             </div>
 
-            {/* Course Description */}
+          
             <div className={styles.descriptionSection}>
               <h2 className={styles.h2}>Course Description</h2>
               <div className={styles.descriptionContent}>
@@ -90,7 +90,7 @@ export default async function CourseDetailPage({ params }) {
               </div>
             </div>
 
-            {/* Instructor Section */}
+           
             <div className={styles.instructor}>
               <h2 className={styles.h2}>Your Instructor</h2>
               <div className={styles.profile}>
@@ -105,8 +105,8 @@ export default async function CourseDetailPage({ params }) {
             </div>
           </div>
 
-          {/* SIDEBAR ENROLL CARD */}
-          <aside>
+          
+          <aside className={styles.aside}>
             <div className={styles.enrollCard}>
               <h3 className={styles.h3}>Enroll Today</h3>
               <p className={styles.enrollText}>Join {course.enrolled} students already enrolled</p>
