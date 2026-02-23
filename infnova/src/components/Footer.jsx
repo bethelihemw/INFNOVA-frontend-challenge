@@ -2,7 +2,10 @@ import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.cont} >
+      <div className={styles.footer}>
+
+      
       <div className={styles.top}>
 
         {/* LEFT */}
@@ -40,6 +43,7 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         © 2026 INFNOVA Technologies. All rights reserved.
+      </div>
       </div>
     </footer>
   );

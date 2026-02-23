@@ -5,3 +5,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
+.met{
+  color: gray;
+  margin-left: 100px;
+  margin-bottom: 20px;
+}

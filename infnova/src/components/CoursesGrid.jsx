@@ -37,10 +37,14 @@ export default function CoursesGrid() {
   if (error) return <p style={{ textAlign: "center" }}>{error}</p>;
 
   return (
+    <div> 
+    <p className={styles.met}>Showing 8 of 8 courses </p>
     <section className={styles.grid}>
+      
       {courses.map((course) => (
         <CourseCard key={course.id} course={course} />
       ))}
     </section>
+    </div>
   );
 }

@@ -1,3 +1,7 @@
+.cont{
+  background-color: #396fa5;
+  font-family:  sans-serif;
+}
 .footer {
   background-color: #0f1b2d;
   color: #cbd5e1;
@@ -9,12 +13,14 @@
 .top {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 60px;
+  gap: 50px;
 }
 
 .top h3 {
-  color: white;
+  color: rgb(255, 255, 255);
   margin-bottom: 15px;
+  font-weight: 500;
+ 
 }
 
 .top h4 {
@@ -23,6 +29,8 @@
 }
 
 .top p {
+  color: rgb(165, 165, 165);
+   font-size: 14px;
   line-height: 1.6;
   max-width: 400px;
 }
@@ -32,7 +40,9 @@
 }
 
 .top li {
-  margin-bottom: 10px;
+  color: rgb(165, 165, 165);
+  font-size: 14px;
+  margin-bottom: 12px;
   cursor: pointer;
 }
 
@@ -46,6 +56,6 @@
   margin-top: 40px;
   padding-top: 20px;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
 }
 

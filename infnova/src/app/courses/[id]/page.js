@@ -1,137 +1,159 @@
+import Link from 'next/link';
 import styles from "./CourseDetails.module.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Detailhero from "@/components/Detailhero";
-async function getCourse(id) {
-  const res = await fetch(
-    `http://localhost:3000/api/courses/${id}`,
-    { cache: "no-store" }
-  );
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+export default async function CourseDetailPage({ params }) {
+  // 1. Await params (Required in newer Next.js versions)
+  const { id } = await params;
 
-  return res.json();
-}
+  try {
+    // 2. Fetch data from the API
+    const res = await fetch(`https://infnova-course-api.vercel.app/api/courses/${id}`, {
+      cache: 'no-store',
+    });
 
-export default async function CourseDetails({ params }) {
-  const course = await getCourse(params.id);
+    if (!res.ok) {
+      return <div className="p-20 text-center">Course not found. <Link href="/" className="text-orange-500 underline">Go back</Link></div>;
+    }
 
-  const topics = [
-    "AWS", "Docker", 
-    "CI/CD", "Infrastructure", 
-    "System Design"
-  ];
+    const course = await res.json();
 
+    // 3. The Actual UI
     return (
-      <div> <Navbar /> 
-      <Detailhero />
-  <div className={styles.container}>
-    
-    {/* LEFT SIDE */}
-    <div className={styles.left}>
+      <div>
+        <Navbar/>
+        
+      <div className={styles.container}>
+        {/* HERO SECTION */}
+        <Link href="/" className={styles.backlink}>
 
-      {/* WHAT YOU'LL LEARN */}
-      <div className={styles.card}>
-      <div className={styles.header}>
-        <span className={styles.icon}>📖</span> 
-        <h2 className={styles.title}>What You'll Learn</h2>
-      </div>
-      
-      <div className={styles.grid}>
-        {topics.map((topic, index) => (
-          <div key={index} className={styles.item}>
-            <span className={styles.checkIcon}>
-              <svg 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="3" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </span>
-            <span className={styles.topicText}>{topic}</span>
+              ← Back to Courses
+
+            </Link>
+        <section className={styles.section}>
+          <div className={styles.insidecontainer}>
+            
+            
+            <div className={styles.hero}>
+              <div className={styles.herocontent}>
+                <p className={styles.catagory}>{course.category || "Cloud Computing"}</p>
+                <h1 className={styles.title}>{course.title}</h1>
+                <p className={styles.description}>{course.description}</p>
+                
+                <div className={styles.lists}>
+                  <span className={styles.instr}><img src="/reward.png" alt="Instructor Icon" /> Instructor: <strong>{course.instructor}</strong></span>
+                  <span className={styles.duration}><img src="/clock (1).png" alt="Duration Icon" /> {course.duration}</span>
+                  <span className={styles.enrolled}><img src="/user (5).png" alt="Instructor Icon" /> {course.enrolled?.toLocaleString()} enrolled</span>
+                  <span className={styles.rating}><img src="/star.png" alt="Instructor Icon" /> {course.rating} rating</span>
+                </div>
+
+                <div className={styles.level}>
+                  {course.level} Level
+                </div>
+              </div>
+
+              {/* Decorative Image (matches Figma) */}
+              <div className={styles.imageWrapper}>
+                 <img src={course.thumbnail} alt="course" className="w-full h-full object-cover" />
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
+        </section>
 
-      {/* DESCRIPTION */}
-      <div className={styles.card}>
-  <h2 className={styles.heading}>Course Description</h2>
-
-  <p className={styles.text}>
-    Learn how modern companies deploy and scale applications in the cloud.
-    Build resilient infrastructure, automate deployments, and understand
-    cost-efficient architecture.
-  </p>
-
-  <p className={styles.text}>
-    This comprehensive course is designed to provide you with practical,
-    hands-on experience and real-world skills. You'll work on projects that
-    simulate actual industry scenarios, giving you the confidence to apply
-    your knowledge immediately.
-  </p>
-</div>
-      {/* INSTRUCTOR */}
-      <div className={styles.card}>
-  <h2 className={styles.heading}>Your Instructor</h2>
-
-  <div className={styles.instructorWrapper}>
-
-    {/* Avatar */}
-    <div className={styles.avatar}>SG</div>
-
-    {/* Instructor Info */}
-    <div>
-      <h3 className={styles.instructorName}>
-        Samuel Getachew
-      </h3>
-
-      <p className={styles.instructorBio}>
-        Expert Cloud Computing professional with over 10 years of industry
-        experience. Passionate about teaching and helping students achieve
-        their career goals.
-      </p>
-    </div>
-
-  </div>
-</div>
-
-    </div>
-
-    {/* RIGHT SIDE */}
-    <div className={styles.right}>
-
-      <div className={styles.enroll}>
-        <h2>Enroll Today</h2>
-
-        <p className={styles.text}>Join 2,015 students already enrolled</p>
-
-        <button className={styles.enrollBtn}>
-          Enroll Now
-        </button>
-
-        <button className={styles.wishlistBtn}>
-          Add to Wishlist
-        </button>
-
-        <hr className={styles.hr}/>
-        <h3 className={styles.h3}> This course includes:  </h3>
-        <ul className={styles.ul}>
-          <li className={styles.li}>✅ 9 weeks of content</li>
+        {/* MAIN CONTENT AREA */}
+        <main className={styles.main}>
           
-          <li className={styles.li}>✅ Lifetime access</li>
-          <li className={styles.li}>✅ Certificate of completion</li>
-          <li className={styles.li}>✅ Access on mobile and desktop</li>
-          <li className={styles.li}>✅ Downloadable resources</li>
-        </ul>
+          <div className={styles.section1}>
+            {/* What You'll Learn */}
+            <div className={styles.learn}>
+              <h2 className={styles.h2}>
+                <span className={styles.span}><img className={styles.img} src="/book.png" alt="Instructor Icon" /></span> What You'll Learn
+              </h2>
+              <div className={styles.skills}>
+                {course.skills?.map((skill, i) => (
+                  <div key={i} className={styles.check}>
+                    <span className={styles.checkIcon}>
+              <img src="/image2.png" alt="Check Icon" />
+            </span>
+                    <span className={styles.skill}>{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Course Description */}
+            <div className={styles.descriptionSection}>
+              <h2 className={styles.h2}>Course Description</h2>
+              <div className={styles.descriptionContent}>
+                <p>{course.description}</p>
+                <p>This comprehensive course is designed to provide you with practical, hands-on experience and real-world skills. You'll work on projects that simulate actual industry scenarios, giving you the confidence to apply your knowledge immediately.</p>
+              </div>
+            </div>
+
+            {/* Instructor Section */}
+            <div className={styles.instructor}>
+              <h2 className={styles.h2}>Your Instructor</h2>
+              <div className={styles.profile}>
+                <div className={styles.course}>
+                  {course.instructor?.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div>
+                  <h3 className={styles.h3}>{course.instructor}</h3>
+                  <p className={styles.disc}>Expert Professional • 10+ years experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* SIDEBAR ENROLL CARD */}
+          <aside>
+            <div className={styles.enrollCard}>
+              <h3 className={styles.h3}>Enroll Today</h3>
+              <p className={styles.enrollText}>Join {course.enrolled} students already enrolled</p>
+              
+              <button className={styles.btn}>
+                Enroll Now
+              </button>
+              <button className={styles.whishlist}>
+                Add to Wishlist
+              </button>
+
+              <hr className={styles.hr} />
+              <div className={styles.includeContainer}>
+                 <p className={styles.include}>This course includes:</p>
+                 <ul className={styles.ul}>
+                    {[
+                      { icon:<span className={styles.checkIcon}>
+              <img src="/image2.png" alt="Check Icon" />
+            </span>, text: `${course.duration} of content` },
+                      { icon: <span className={styles.checkIcon}>
+              <img src="/image2.png" alt="Check Icon" />
+            </span>, text: 'Lifetime access' },
+                      { icon: <span className={styles.checkIcon}>
+              <img src="/image2.png" alt="Check Icon" />
+            </span>, text: 'Certificate of completion' },
+                      { icon: <span className={styles.checkIcon}>
+              <img src="/image2.png" alt="Check Icon" />
+            </span>, text: 'Access on mobile and desktop' },
+                      { icon: <span className={styles.checkIcon}>
+             <img src="/image2.png" alt="Check Icon" />
+            </span>, text: 'Downloadable resources' }
+                    ].map((item, idx) => (
+                      <li key={idx} className={styles.icon}>
+                        <span>{item.icon}</span> {item.text}
+                      </li>
+                    ))}
+                 </ul>
+              </div>
+            </div>
+          </aside>
+
+        </main>
       </div>
-
-    </div>
-</div>
-<Footer />
-  </div>
-);
-
+      <Footer/>
+      </div>
+    );
+  } catch (error) {
+    return <div className={styles.error}>Something went wrong. Check your console.</div>;
+  }
 }
